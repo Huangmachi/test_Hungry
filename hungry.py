@@ -129,22 +129,34 @@ def traffic_generation(net, topo):
 	# 2. Start iperf. (Elephant flows)
 	server1 = net.get('h4')
 	client1 = net.get('h1')
+	# server1.cmd("iperf -s -i 10 > ./results/1server.txt &" )
+	# client1.cmd("iperf -c %s -t 120 -i 10 > ./results/1client.txt &" % server1.IP())
 	server1.cmd("iperf -s > /dev/null &" )   # Its statistics is useless, just throw away.
+	time.sleep(0.1)
 	client1.cmd("iperf -c %s -t 120 > /dev/null &" % server1.IP())   # Its statistics is useless, just throw away.
+
 
 	time.sleep(30)
 
 	server2 = net.get('h5')
 	client2 = net.get('h2')
+	# server2.cmd("iperf -s -i 10 > ./results/2server.txt &" )
+	# client2.cmd("iperf -c %s -t 90 -i 10 > ./results/2client.txt &" % server2.IP())
 	server2.cmd("iperf -s > /dev/null &" )   # Its statistics is useless, just throw away.
+	time.sleep(0.1)
 	client2.cmd("iperf -c %s -t 90 > /dev/null &" % server2.IP())   # Its statistics is useless, just throw away.
+
 
 	time.sleep(30)
 
 	server3 = net.get('h6')
 	client3 = net.get('h3')
+	# server3.cmd("iperf -s -i 10 > ./results/3server.txt &" )
+	# client3.cmd("iperf -c %s -t 60 -i 10 > ./results/3client.txt &" % server3.IP())
 	server3.cmd("iperf -s > /dev/null &" )   # Its statistics is useless, just throw away.
+	time.sleep(0.1)
 	client3.cmd("iperf -c %s -t 60 > /dev/null &" % server3.IP())   # Its statistics is useless, just throw away.
+
 
 	# 3. The experiment is going on.
 	time.sleep(65)
