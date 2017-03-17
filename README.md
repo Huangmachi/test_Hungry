@@ -15,7 +15,7 @@ The following softwares should have been installed in your machine.
 
 ### Start
 
-Just start it as follows, you will find the results in the 'results' directory.
+Just start it as follows, you will find the results in the 'results' directory. It will takes you about 3 minutes.
 
     $ ./test_hungry.sh
 
@@ -25,7 +25,5 @@ Just start it as follows, you will find the results in the 'results' directory.
 Brought to you by Huang MaChi (Chongqing University of Posts and Telecommunications, Chongqing, China.).
 
 If you have any question, you can email me at huangmachi@foxmail.com.
-
-Don't forget to STAR this repository!
 
 Enjoy it!

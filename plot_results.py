@@ -124,11 +124,11 @@ def plot_results():
 	plt.xlabel('Time (s)', fontsize='x-large')
 	plt.xlim(0, 120)
 	plt.xticks(np.arange(0, 121, 30))
-	plt.ylabel('Total Throughput\n(Mbit)', fontsize='x-large')
+	plt.ylabel('Network Total Throughput\n(Mbit)', fontsize='x-large')
 	plt.ylim(0, utmost_throughput)
 	plt.yticks(np.linspace(0, utmost_throughput, 11))
 	plt.grid(True)
-	plt.savefig('./results/1.total_throughput.png')
+	plt.savefig('./results/1.network_total_throughput.png')
 
 	# 2. Plot realtime speed of individual flow.
 	fig = plt.figure()
@@ -163,12 +163,27 @@ def plot_results():
 	plt.xlabel('Time (s)', fontsize='x-large')
 	plt.xlim(0, 120)
 	plt.xticks(np.arange(0, 121, 30))
-	plt.ylabel('Realtime Throughput\n(Mbit/s)', fontsize='x-large')
+	plt.ylabel('Network Unit Time Throughput\n(Mbit/s)', fontsize='x-large')
 	plt.ylim(0, bandwidth)
 	plt.yticks(np.linspace(0, bandwidth, 11))
 	plt.grid(True)
-	plt.savefig('./results/3.realtime_throught.png')
+	plt.savefig('./results/3.network_unit_time_throught.png')
 
+	# 4. Plot realtime load of link S1>S2.
+	fig = plt.figure()
+	fig.set_size_inches(12, 6)
+	x = np.arange(0, 121)
+	realtime_speed = get_realtime_speed('s1-eth4')
+	y = get_value_list(realtime_speed)
+	plt.plot(x, y, 'r-', linewidth=2)
+	plt.xlabel('Time (s)', fontsize='x-large')
+	plt.xlim(0, 120)
+	plt.xticks(np.arange(0, 121, 30))
+	plt.ylabel('Realtime Load of S1->S2\n(Mbit/s)', fontsize='x-large')
+	plt.ylim(0, bandwidth)
+	plt.yticks(np.linspace(0, bandwidth, 11))
+	plt.grid(True)
+	plt.savefig('./results/4.realtime_load_of_S1-S2.png')
 
 if __name__ == '__main__':
 	plot_results()
